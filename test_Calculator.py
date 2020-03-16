@@ -29,3 +29,6 @@ def test_add_negative_number_return_error() -> None:
 
 def test_add_negative_number_return_error() -> None:
     assert Calculator.Add("2,-4,3,-5")  == "Negatives not allowed: -4,-5"
+
+def test_add_negative_number_return_error_vol2() -> None:
+    assert Calculator.Add("2,-4,3,-5,-12,3,-10")  == "Negatives not allowed: -4,-5,-12,-10"
