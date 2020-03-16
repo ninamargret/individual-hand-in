@@ -1,4 +1,7 @@
 class Calculator:
     @staticmethod
     def Add(input: str) -> int:
-        return 0
+        if input == "":
+            return 0
+        else:
+            return int(input)
