@@ -12,4 +12,9 @@ def test_add_two_numbers_returns_sum_of_numbers()-> None:
 def test_add_unknown_numbers_returns_sum_of_numbers()-> None:
     assert Calculator.Add("1,2,3,4,5") == 15
 
+def test_add_unknown_numbers_returns_sum_of_numbers_vol2()-> None:
+    assert Calculator.Add("10,2,5,22,1,1") == 41
+
+def test_add_unknown_numbers_returns_sum_of_numbers_vol3()-> None:
+    assert Calculator.Add("10,2,5,22,1,1,105,342") == 488
 
