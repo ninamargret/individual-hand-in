@@ -32,3 +32,9 @@ def test_add_negative_number_return_error() -> None:
 
 def test_add_negative_number_return_error_vol2() -> None:
     assert Calculator.Add("2,-4,3,-5,-12,3,-10")  == "Negatives not allowed: -4,-5,-12,-10"
+
+def test_add_with_delimiter_return_only_sum_of_numbers() -> None:
+    assert Calculator.Add("//X\n1X2") == 3
+
+def test_add_with_delimiter_return_only_sum_of_numbers_vol2() -> None:
+    assert Calculator.Add("//%\n1%2%3") == 6

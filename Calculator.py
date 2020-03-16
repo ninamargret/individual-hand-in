@@ -6,6 +6,7 @@ class Calculator:
             return 0
         
         elif len(input) >= 3:
+            
             negative_numbers = ""
             num_list = input.split(",")
             sum = 0 
@@ -16,12 +17,15 @@ class Calculator:
                 
                 elif "\n" in number_str:
                     num1, num2 = number_str.split("\n")
-                    num1 = check_number_str(int(num1))
-                    num2 = check_number_str(int(num2))
+                    num1 = check_number_str(num1)
+                    num2 = check_number_str(num2)
                     sum += num1 + num2
+    
                 else:
-                    number_str = check_number_str(int(number_str))
-                    sum += number_str
+                    if int(number_str) > 1000:
+                        sum += 0
+                    else:
+                        sum += int(number_str)
             
             if negative_numbers != "":
                 return f"Negatives not allowed: {negative_numbers[:-1]}"
@@ -32,8 +36,14 @@ class Calculator:
             return int(input)
 
 
-def check_number_str(number_str: int)-> int:
-        if number_str > 1000:
-            return 0
+def check_number_str(number_str: str)-> int:
+    new_num = 0
+    for element in number_str:
+
+        if element.isdigit() and int(element) > 1000:
+            new_num += 0
+        elif element.isdigit():
+            new_num += int(element)
         else:
-            return number_str
+            new_num += 0
+    return new_num
