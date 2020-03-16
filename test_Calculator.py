@@ -26,3 +26,6 @@ def test_add_ignore_numbers_bigger_than_1000() -> None:
 
 def test_add_negative_number_return_error() -> None:
     assert Calculator.Add("-1,2") == "Negatives not allowed: -1"
+
+def test_add_negative_number_return_error() -> None:
+    assert Calculator.Add("2,-4,3,-5")  == "Negatives not allowed: -4,-5"

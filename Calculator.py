@@ -1,6 +1,3 @@
-class NegativeNumber(Exception):
-    pass
-
 class Calculator:
     
     @staticmethod
@@ -9,25 +6,27 @@ class Calculator:
             return 0
         
         elif len(input) >= 3:
-            try:
-                num_list = input.split(",")
-                sum = 0 
-                for number_str in num_list:
-                    if "-" in number_str:
-                        raise NegativeNumber
-                    elif "\n" in number_str:
-                        num1, num2 = number_str.split("\n")
-                        num1 = check_number_str(int(num1))
-                        num2 = check_number_str(int(num2))
-                        sum += num1 + num2
-                    else:
-                        number_str = check_number_str(int(number_str))
-                        sum += number_str
-
+            negative_numbers = ""
+            num_list = input.split(",")
+            sum = 0 
+            
+            for number_str in num_list:
+                if "-" in number_str:
+                    negative_numbers += number_str + ","
+                
+                elif "\n" in number_str:
+                    num1, num2 = number_str.split("\n")
+                    num1 = check_number_str(int(num1))
+                    num2 = check_number_str(int(num2))
+                    sum += num1 + num2
+                else:
+                    number_str = check_number_str(int(number_str))
+                    sum += number_str
+            
+            if negative_numbers != "":
+                return f"Negatives not allowed: {negative_numbers[:-1]}"
+            else:
                 return sum
-            except NegativeNumber:
-                return f"Negatives not allowed: {number_str}"
-
         
         else:
             return int(input)
