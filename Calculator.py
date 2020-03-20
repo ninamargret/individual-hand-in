@@ -1,3 +1,4 @@
+
 class Calculator:
     
     @staticmethod
@@ -28,7 +29,7 @@ class Calculator:
                         sum += int(number_str)
             
             if negative_numbers != "":
-                return f"Negatives not allowed: {negative_numbers[:-1]}"
+                raise Exception(f"Negatives not allowed: {negative_numbers[:-1]}")
             else:
                 return str(sum)
         
