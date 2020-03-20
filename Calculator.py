@@ -3,7 +3,7 @@ class Calculator:
     @staticmethod
     def Add(input: str) -> int:
         if input == "":
-            return 0
+            return str(0)
         
         elif len(input) >= 3:
             
@@ -30,10 +30,10 @@ class Calculator:
             if negative_numbers != "":
                 return f"Negatives not allowed: {negative_numbers[:-1]}"
             else:
-                return sum
+                return str(sum)
         
         else:
-            return int(input)
+            return str(input)
 
 
 def check_number_str(number_str: str)-> int:
